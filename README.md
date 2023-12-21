@@ -9,11 +9,12 @@ A simple SvelteKit Todo List app that works as a Progressive Web App (PWA) and c
 - TypeScript
 - SvelteKit
 - Svelte/Store
+- PWA
 
 ## Features
 
 - List/Add/Remove Todos. 
-- Service worker configured to cache the built app and any files in static eagerly, and caching all other requests as they happen. This would make each page work offline once visited.
+- Service worker configured to cache the built app and any files in static eagerly, and cache all other requests as they happen. This would make each page work offline once visited.
 
 ## Screenshots
 
