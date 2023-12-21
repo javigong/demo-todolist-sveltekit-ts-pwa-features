@@ -1,4 +1,4 @@
-# SvelteKit Todo List: an SvelteKit PWA demo
+# SvelteKit Todo List: a SvelteKit PWA demo
 
 A simple SvelteKit Todo List app that works as a Progressive Web App (PWA) and can function offline
 
