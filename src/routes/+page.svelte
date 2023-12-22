@@ -1,31 +1,31 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { todos, addTodo, toggleTodo, deleteTodo } from '$lib/todoService';
+  import { addTodo, deleteTodo, todos, toggleTodo } from '$lib/todoService'
+  import { onMount } from 'svelte'
 
-  let newTodoText = '';
+  let newTodoText = ''
 
   // Subscribe to the todos store
-  $: todosList = $todos;
+  $: todosList = $todos
 
   onMount(() => {
     // Fetch initial todos
-    todosList = $todos;
-  });
+    todosList = $todos
+  })
 
   const addNewTodo = () => {
     if (newTodoText.trim() !== '') {
-      const newTodo = addTodo(newTodoText.trim());
-      newTodoText = '';
+      const newTodo = addTodo(newTodoText.trim())
+      newTodoText = ''
     }
-  };
+  }
 
   const toggleTodoStatus = (id: number) => {
-    toggleTodo(id);
-  };
+    toggleTodo(id)
+  }
 
   const removeTodo = (id: number) => {
-    deleteTodo(id);
-  };
+    deleteTodo(id)
+  }
 </script>
 
 <main>
@@ -39,12 +39,16 @@
 
   <ul>
     {#each todosList as { id, text, completed }}
-      <li
-        on:click={() => toggleTodoStatus(id)}
-        class:completed={completed}
-      >
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+      <li on:click={() => toggleTodoStatus(id)} class:completed>
         {text}
-        <button on:click={(event) => { event.stopPropagation(); removeTodo(id); }}>
+        <button
+          on:click={(event) => {
+            event.stopPropagation()
+            removeTodo(id)
+          }}
+        >
           Remove
         </button>
       </li>
